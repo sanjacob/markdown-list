@@ -38,6 +38,7 @@ try {
   // Simple stm to track progress
   const Phase = {
     FIND_LIST: 'FIND_LIST',
+    START_LIST: 'START_LIST',
     IN_LIST: 'IN_LIST',
     DONE: 'DONE'
   };
@@ -46,18 +47,25 @@ try {
   const bullet = '-';
 
   rl.on('line', (line) => {
+
     if (state = Phase.FIND_LIST) {
-      if (isHeader(line) && line.endsWith(header)) {
+      if (isHeader(line) && line.endsWith(`${header}\n`)) {
+        state = Phase.START_LIST;
+      }
+    } else if (state = Phase.START_LIST) {
+      // First item, copy bullet style
+      if (isItem(line)) {
+        bullet = line[0];
         state = Phase.IN_LIST;
+      } else if (line != "\n") {
+        // Bamboozled: Not a list
+        state = Phase.FIND_LIST;
       }
     } else if (state = Phase.IN_LIST) {
       if (!isItem(line)) {
         // first line without anything
         fileOut.write(`${bullet} ${item}`);
         state = Phase.DONE;
-      } else {
-        // uses bullet style of last line
-        bullet = line[0];
       }
     }
 

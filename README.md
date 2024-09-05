@@ -19,9 +19,9 @@
 
 - The action will look for the first list under the specified
   header, regardless of level (`#`, `##`, `###`, etc).
-- The item will be appended with the bullet style of the list,
-  or if empty, a dash (`-`).
-- One empty line is allowed after the list header.
+- The item will be appended with the bullet style of the list.
+- Empty lines are allowed after the list header.
+- The list **MUST** not be empty (otherwise there is no list really)
 
 
 ## Example
