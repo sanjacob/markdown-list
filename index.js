@@ -75,7 +75,8 @@ try {
   fileOut.end();
 
   fs.rename(tmpFile, file, (err) => {
-    throw err;
+    console.log('File not found?');
+    //throw err;
   });
 } catch (error) {
   core.setFailed(error.message);
