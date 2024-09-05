@@ -75,7 +75,9 @@ try {
     fileOut.end();
 
     fs.rename(tmpFile, file, (err) => {
-      throw err;
+      if (err != null) {
+        throw err;
+      }
     });
   });
 } catch (error) {
