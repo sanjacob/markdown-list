@@ -72,6 +72,8 @@ try {
     fileOut.write(line);
   });
 
+  fileOut.end();
+
   fs.rename(tmpFile, file, (err) => {
     throw err;
   });
