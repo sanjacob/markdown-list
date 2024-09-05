@@ -3,6 +3,9 @@
 
 ## Inputs
 
+### `file`
+**Required** The file which contains the list.
+
 ### `header`
 
 **Required** The header of the list to append to.
@@ -10,6 +13,15 @@
 ### `item`
 
 **Required** The item you want to append.
+
+
+## Notes
+
+- The action will look for the first list under the specified
+  header, regardless of level (`#`, `##`, `###`, etc).
+- The item will be appended with the bullet style of the list,
+  or if empty, a dash (`-`).
+- One empty line is allowed after the list header.
 
 
 ## Example
@@ -40,3 +52,9 @@ With SHOPPING.md having the following content
 - Bacon
 - Beans
 ```
+
+## License
+
+This software is distributed under the [3-Clause BSD License][license].
+
+[license]: LICENSE
