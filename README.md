@@ -55,6 +55,10 @@ With SHOPPING.md having the following content
 - Beans
 ```
 
+## Demonstration
+
+[Example repository](https://github.com/sanjacob/markdown-list-test)
+
 ## License
 
 This software is distributed under the [3-Clause BSD License][license].
