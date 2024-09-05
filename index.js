@@ -49,24 +49,20 @@ try {
   rl.on('line', (line) => {
     if (state == Phase.FIND_LIST) {
       if (isHeader(line) && line.endsWith(header)) {
-        console.log("Found header");
+        console.log("INFO: Header found");
         state = Phase.START_LIST;
       }
-      console.log("Finding header");
     } else if (state == Phase.START_LIST) {
-      console.log("in start");
       // First item, copy bullet style
       if (isItem(line)) {
         bullet = line[0];
         state = Phase.IN_LIST;
       } else if (line !== "") {
         // Bamboozled: Not a list
-        console.log("not a list");
-        console.log(line);
+        console.log("WARNING: Header found but not a list");
         state = Phase.FIND_LIST;
       }
     } else if (state == Phase.IN_LIST) {
-      console.log("in list");
       if (!isItem(line)) {
         // first line without anything
         fileOut.write(`${bullet} ${item}\n`);
