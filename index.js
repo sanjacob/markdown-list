@@ -43,11 +43,10 @@ try {
     DONE: 'DONE'
   };
 
-  const state = Phase.FIND_LIST;
-  const bullet = '-';
+  let state = Phase.FIND_LIST;
+  let bullet = '-';
 
   rl.on('line', (line) => {
-
     if (state = Phase.FIND_LIST) {
       if (isHeader(line) && line.endsWith(`${header}\n`)) {
         state = Phase.START_LIST;
@@ -72,11 +71,12 @@ try {
     fileOut.write(line);
   });
 
-  fileOut.end();
+  rl.on('close', () => {
+    fileOut.end();
 
-  fs.rename(tmpFile, file, (err) => {
-    console.log('File not found?');
-    //throw err;
+    fs.rename(tmpFile, file, (err) => {
+      throw err;
+    });
   });
 } catch (error) {
   core.setFailed(error.message);
