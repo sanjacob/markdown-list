@@ -1,0 +1,15 @@
+name: 'Markdown List Append'
+description: 'Append an item to a markdown list'
+inputs:
+  file:
+    description: 'File that contains list'
+    required: true
+  header:
+    description: 'Header of list to append to'
+    required: true
+  item:
+    description: 'Item to append'
+    required: true
+runs:
+  using: 'node20'
+  main: 'index.js'
