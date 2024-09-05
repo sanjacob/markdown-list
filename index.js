@@ -48,7 +48,7 @@ try {
 
   rl.on('line', (line) => {
     if (state = Phase.FIND_LIST) {
-      if (isHeader(line) && line.endsWith(`${header}\n`)) {
+      if (isHeader(line) && line.endsWith(header)) {
         state = Phase.START_LIST;
       }
     } else if (state = Phase.START_LIST) {
@@ -63,12 +63,12 @@ try {
     } else if (state = Phase.IN_LIST) {
       if (!isItem(line)) {
         // first line without anything
-        fileOut.write(`${bullet} ${item}`);
+        fileOut.write(`${bullet} ${item}\n`);
         state = Phase.DONE;
       }
     }
 
-    fileOut.write(line);
+    fileOut.write(line + '\n');
   });
 
   rl.on('close', () => {
