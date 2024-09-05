@@ -31,7 +31,7 @@ try {
   const fileOut = fs.createWriteStream(tmpFile);
 
   const rl = readline.createInterface({
-    input: fileStream,
+    input: fileIn,
     crlfDelay: Infinity
   });
 
