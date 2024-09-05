@@ -4,6 +4,7 @@
 ## Inputs
 
 ### `file`
+
 **Required** The file which contains the list.
 
 ### `header`
@@ -22,6 +23,7 @@
 - The item will be appended with the bullet style of the list.
 - Empty lines are allowed after the list header.
 - The list **MUST** not be empty (otherwise there is no list really)
+- This action only works with unnumbered lists
 
 
 ## Example
