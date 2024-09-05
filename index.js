@@ -56,7 +56,7 @@ try {
       if (isItem(line)) {
         bullet = line[0];
         state = Phase.IN_LIST;
-      } else if (line != "\n") {
+      } else if (line !== "") {
         // Bamboozled: Not a list
         state = Phase.FIND_LIST;
       }
